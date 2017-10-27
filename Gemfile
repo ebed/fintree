@@ -42,6 +42,7 @@ group :development, :test do
   gem "database_cleaner"
   gem "rspec-rails"
   gem 'figaro'
+  gem 'awesome_print'
 end
 
 group :development do

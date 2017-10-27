@@ -2,7 +2,7 @@
 
 Servicio Proxy de autenticación. Los endpoints disponibilizados son 2.
 
-##Instalación
+## Instalación
  Descargar los fuentes con 
  ```
  git clone ....
@@ -20,15 +20,15 @@ Es necesario obtener las gemas necesarias, por lo que se deberá ejecutar el com
 
 Se debe montar la base de datos 
 ```
-	rake db:migrate
-	```
+rake db:migrate
+```
 
 Y realizar la inserción de los datos necesarios para partir 
 ```
 rake db:seed
 ```
 
-###Servicios
+### Servicios
 	```
 	POST: /rest/login
 	Parametros entrada: 
@@ -68,7 +68,7 @@ rake db:seed
 
 	```
 
-###Verificar servicio
+### Verificar servicio
 Para probar el servicio, se puede utilizar CURL con la siguiente estructura:
 ```
 curl ....

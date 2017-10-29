@@ -86,6 +86,17 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => ENV['SMTP_SERVER'],
+    :port                 => ENV['SMTP_PORT'],
+    :user_name            => ENV['EMAIL_USERNAME'],
+    :password             => ENV['EMAIL_PASSWORD'],
+    :authentication       => ENV['EMAIL_AUTH'],
+    :enable_starttls_auto => true
+  }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

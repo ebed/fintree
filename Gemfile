@@ -37,6 +37,7 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+ gem 'pg', '~> 0.18'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,7 +60,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use postgresql as the database for Active Record
-  gem 'pg', '~> 0.18'
+ 
   gem 'rubocop'
 end
 

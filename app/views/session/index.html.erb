@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+
+	<div class="panel-heading">
+		AUTENTICACION
+	</div>
+	<div class="panel-body">
+		<%= form_for @user, url: session_index_path, method: :post, :html => { :class => "form-horizontal autenticacion" } do |f| %>
+			<%= f.label :email %>
+			<%= f.email_field :email, class: "form-control", required: true %>
+			<br/>
+			<%= f.label :image_file do %>
+				Imagen
+				<% end %>
+			<%= f.file_field :image_file, class: "form-control", required: true  %>
+
+			<br/>
+			<%= f.submit 'AUTENTICA', class: "btn btn-primary"  %>
+		<% end %>
+
+
+	</div>
+</div>

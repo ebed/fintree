@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171029193734) do
+ActiveRecord::Schema.define(version: 20171029221011) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20171029193734) do
     t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["id"], name: "index_users_on_id", unique: true
   end
 
 end

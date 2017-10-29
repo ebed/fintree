@@ -1,0 +1,13 @@
+p.notice {
+    font-size: 3rem;
+    font-weight: bolder;
+    text-align: center;
+    color: lightyellow;
+    background-color: lightslategrey;
+}
+p.error {
+    background-color: lightgoldenrodyellow;
+    color: red;
+    font-size: 3rem;
+    text-align: center;
+}

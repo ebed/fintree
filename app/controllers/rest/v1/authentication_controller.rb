@@ -3,11 +3,12 @@ module Rest
   module V1
     class AuthenticationController <  ApplicationController
       include HTTParty
+
+
       def login
-        url_verify = "http://localhost:3000/rest/verify_user/#{params[:email]}"
+        url_verify = "http://"+ENV['HOSTNAME_PORT']+"/rest/verify_user/#{params[:email]}"
         response = HTTParty.post(url_verify,{body: { "image": "#{params[:image]}" }})
-        ap response.code
-        ap response["message"]
+        
         ahora =Time.now
         SendEmailJob.set(wait: 20.seconds).perform_later(params[:email], request.user_agent, ahora.to_s, response.code)  
 

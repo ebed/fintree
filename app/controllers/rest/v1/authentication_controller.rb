@@ -6,7 +6,7 @@ module Rest
 
 
       def login
-        url_verify = "http://"+ENV['HOSTNAME_PORT']+"/rest/verify_user/#{params[:email]}"
+        url_verify = ENV['PROTOCOLO_SERVER']+"://"+ENV['HOSTNAME_PORT']+"/rest/verify_user/#{params[:email]}"
         response = HTTParty.post(url_verify,{body: { "image": "#{params[:image]}" }})
         
         ahora =Time.now

@@ -5,7 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem 'httparty'
-
+gem "therubyracer"
+gem "less-rails"  
+gem "imatcher"
+gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
@@ -28,7 +31,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'active_model_serializers'
+gem 'text'
+gem 'delayed_job_active_record'
+gem 'daemons'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

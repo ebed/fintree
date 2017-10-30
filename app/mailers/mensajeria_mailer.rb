@@ -1,5 +1,5 @@
 class MensajeriaMailer < ActionMailer::Base
-  default from: ENV['CORREO_AVISOS']
+  default from: "contacto@reportestecnicos.cl"
 
   def intentoacceso( correo, agent, momento, resultado)
   	

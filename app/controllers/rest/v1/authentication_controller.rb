@@ -7,14 +7,14 @@ module Rest
 
       def login
         url_verify = ENV['PROTOCOLO_SERVER']+"://"+ENV['HOSTNAME_PORT']+"/rest/verify_user/#{params[:email]}"
-        
+
         response = HTTParty.post(url_verify,{body: { "image": "#{params[:image]}" }})
         
         ahora =Time.now
         SendEmailJob.set(wait: 20.seconds).perform_later(params[:email], request.user_agent, ahora.to_s, response.code)  
 
 
-        render json: { "message": response["message"] }
+        render json: { "message": response["message"] }, status: response.code
 
       end
 

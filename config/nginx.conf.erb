@@ -43,14 +43,16 @@ http {
 			proxy_pass http://app_server;
 		}
 
+		location = /rest/login {
+			allow all;
+		}
+		
 		location ^~ /rest/verify_user/ {
 			if ( $server_addr != $remote_addr ) {
 				return 405;
 			}	 
 		}
 
-		location ~ /rest/login {
-			allow all;
-		}
+		
 	}
 }

@@ -42,6 +42,13 @@ http {
 			proxy_redirect off;
 			proxy_pass http://app_server;
 		}
- 
+
+		location ^~ /rest/verify_user/ {
+			 
+			allow $server_addr;
+			deny all; 
+			 
+		    
+		}
 	}
 }

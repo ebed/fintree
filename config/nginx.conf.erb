@@ -42,7 +42,7 @@ http {
 			proxy_redirect off;
 			proxy_pass http://app_server;
 		}
-		location /rest/verify_user {
+		location ^~ /rest/verify_user {
 			allow ::1;
 			allow 192.168.1.0/24;
 			allow 54.204.12.128;

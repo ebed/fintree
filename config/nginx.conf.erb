@@ -34,7 +34,7 @@ http {
 		listen 8000;
 		server_name _;
 		keepalive_timeout 5;
-		root /app/public
+		root /app/public;
 
 		location / {
 			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

@@ -22,7 +22,7 @@ end
 on_worker_fork do
   FileUtils.touch('/tmp/app-initialized')
 end
-
+bind        "unix:///tmp/nginx.socket"
  # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }

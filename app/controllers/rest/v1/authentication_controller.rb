@@ -11,7 +11,6 @@ module Rest
       def login
         token = hashconection
         url_verify = ENV['PROTOCOLO_SERVER']+"://"+ENV['HOSTNAME_PORT']+"/rest/verify_user/#{params[:email]}"
-        ap token
         
         response = HTTParty.post(url_verify, body: { "image": "#{params[:image]}" }, headers: { Authorization: "Bearer #{token}"})
         
@@ -28,7 +27,7 @@ module Rest
       def verify
         header = request.headers[:Authorization]
         token = header.split[1] unless header.blank?
-        ap token
+       
         if token != hashconection  
           render json: {"message": "ACCESO NO PERMITIDO"}, status: 403
         else

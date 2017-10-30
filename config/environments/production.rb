@@ -94,8 +94,9 @@ Rails.application.configure do
     :port                 => ENV['SMTP_PORT'],
     :user_name            => ENV['EMAIL_USERNAME'],
     :password             => ENV['EMAIL_PASSWORD'],
-    :authentication       => ENV['EMAIL_AUTH'],
-    :enable_starttls_auto => true
+    :format               =>  :html,
+    :enable_starttls_auto => true,
+    :from                 => ENV['CORREO_AVISOS']
   }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

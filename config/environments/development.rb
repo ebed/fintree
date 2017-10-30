@@ -58,12 +58,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
+  :address              => ENV['SMTP_SERVER'],
+    :port                 => ENV['SMTP_PORT'],
     :user_name            => ENV['EMAIL_USERNAME'],
     :password             => ENV['EMAIL_PASSWORD'],
-    :authentication       => "plain",
-    :enable_starttls_auto => true
+    :format               =>  :html,
+    :enable_starttls_auto => true,
+    :from                 => ENV['CORREO_AVISOS']
   }
 
 end

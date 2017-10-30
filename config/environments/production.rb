@@ -95,7 +95,7 @@ Rails.application.configure do
     :port                 => ENV['SMTP_PORT'],
     :user_name            => ENV['SENDGRID_USERNAME'],
     :password             => ENV['SENDGRID_PASSWORD'],
-    :domain =>            => ENV['HOST'],
+    :domain               => ENV['HOST'],
     :authentication       => :plain,
     :format               => :html,
     :enable_starttls_auto => true

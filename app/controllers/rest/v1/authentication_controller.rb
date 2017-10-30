@@ -26,19 +26,15 @@ module Rest
       def verify
         usuario = User.where(email: params[:id]+"."+params[:format]).first
         if usuario.present?
-          ap "usuario presente"
-          if ImageCompare.cumpleSemejanza(verify_params[:image], usuario.image)
-            ap "usuario imagen igual"
-
+           if ImageCompare.cumpleSemejanza(verify_params[:image], usuario.image)
+           
             render json: { "message":"OK" }, status: 200
           else
-            ap "usuario imagen NO igual"
-
+            
             render json: { "message":"No Autorizado"}, status: 401
           end
         else
-          ap "usuario NO presente"
-
+         
           render json: { "message":"No Autorizado"}, status: 401
         end
       end

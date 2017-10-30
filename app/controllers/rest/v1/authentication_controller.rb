@@ -10,7 +10,7 @@ module Rest
       # Servicio de Login expuesto para logear. Se requiere un email y una imagen en BASE64
       def login
         url_verify = ENV['PROTOCOLO_SERVER']+"://"+ENV['HOSTNAME_PORT']+"/rest/verify_user/#{params[:email]}"
-
+        
         response = HTTParty.post(url_verify,{body: { "image": "#{params[:image]}" }})
         
         ahora =Time.now
@@ -26,12 +26,19 @@ module Rest
       def verify
         usuario = User.where(email: params[:id]+"."+params[:format]).first
         if usuario.present?
+          ap "usuario presente"
           if ImageCompare.cumpleSemejanza(verify_params[:image], usuario.image)
+            ap "usuario imagen igual"
+
             render json: { "message":"OK" }, status: 200
           else
+            ap "usuario imagen NO igual"
+
             render json: { "message":"No Autorizado"}, status: 401
           end
         else
+          ap "usuario NO presente"
+
           render json: { "message":"No Autorizado"}, status: 401
         end
       end

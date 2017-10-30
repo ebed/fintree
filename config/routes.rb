@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :rest, defaults: {format: 'json'} do
     scope module: :v1 do
       post 'login', to: 'authentication#login'
-      post 'verify_user/:id', to: 'authentication#verify' 
+      post 'verify_user/:id', to: 'authentication#verify', constraints: {:ip => '127.0.0.1'}
 
     end
   end

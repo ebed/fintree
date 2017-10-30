@@ -46,10 +46,11 @@ http {
 		location ^~ /rest/verify_user/ {
 			if ( $server_addr != $remote_addr ) {
 				return 405;
-			}	
-			 
-			 
-		    
+			}	 
+		}
+
+		location /rest/login {
+			allow all;
 		}
 	}
 }

@@ -1,3 +1,8 @@
+##
+# Mailer que envia correo con los detalles  de accesos por medio de
+# MEtodo intentoacceso
+
+
 class MensajeriaMailer < ActionMailer::Base
   default from: "contacto@reportestecnicos.cl"
 

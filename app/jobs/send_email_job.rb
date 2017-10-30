@@ -1,3 +1,6 @@
+##
+# Tarea dedicada a manejar las llamadas al mailer ;emsajeriaMailer
+
 class SendEmailJob < ApplicationJob
   queue_as :default
 

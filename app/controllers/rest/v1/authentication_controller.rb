@@ -1,10 +1,13 @@
+## 
+# Clase encargada de proveer la API con servicios REST para autenticar
 
 module Rest
   module V1
     class AuthenticationController <  ApplicationController
       include HTTParty
 
-
+      ##
+      # Servicio de Login expuesto para logear. Se requiere un email y una imagen en BASE64
       def login
         url_verify = ENV['PROTOCOLO_SERVER']+"://"+ENV['HOSTNAME_PORT']+"/rest/verify_user/#{params[:email]}"
 
@@ -18,7 +21,8 @@ module Rest
 
       end
 
-
+      ## 
+      # Servicio consumido por Login el que valida que la imagen funcione. Se requiere un email  como ID y una imagen en BASE64
       def verify
         usuario = User.where(email: params[:id]+"."+params[:format]).first
         if usuario.present?
@@ -34,6 +38,8 @@ module Rest
 
 
       private
+      ##
+      # Strong Parameters de imagen 
       def verify_params
         params.permit(:image)
       end

@@ -1,12 +1,18 @@
+##
+# Controlador que maneja el formulario de login
+
 class SessionController < ApplicationController
-	rescue_from Timeout::Error, :with => :rescue_from_timeout
+	
 
-
+	##
+	# Inicializa INDEX para ser renderizado con variable de Usuario nueva
 	def index
 		@user = User.new
 
 	end
 
+	##
+	# Metodo que recibe la llamada del formulario de login, recibiendo el emal y la imagen que se codifica en BASE64
  	def create
  		imagencodificada=Base64.encode64(session_params[:image_file].read)
  		url_login = "http://"+ENV['HOSTNAME_PORT']+"/rest/login"
@@ -18,18 +24,14 @@ class SessionController < ApplicationController
 			flash[:error] = "Autenticación Fallida"  
 		end
 		redirect_to root_path  
-
  	end
 
 
  	private
+ 	##
+ 	# Strong Params  utilizados para el login
  	def session_params
  		params.require(:user).permit(:email, :image_file)
  	end
-
- 	def rescue_from_timeout(exception)
- 		 flash[:error] = "Problema con el Servicio, intente nuevamente (TIMEOUT)"  
-    	redirect_to root_path
- 	 end
-
+ 
 end

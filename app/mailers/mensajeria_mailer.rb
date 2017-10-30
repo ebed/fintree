@@ -12,7 +12,7 @@ class MensajeriaMailer < ActionMailer::Base
     @correo = correo
     @resultado = resultado
     @momento = momento
-    mail(to: ENV['CORREO_AVISOS'], subject: "Intento de acceso")
+    mail(to: correo, subject: "Intento de acceso")
 
   end
 end

@@ -10,7 +10,7 @@ class ImageCompare
 		white = Text::WhiteSimilarity.new
 
 		similaridad = white.similarity(b64_1, b64_2)
-		 
+		 	
 		similaridad*100
 	end
 

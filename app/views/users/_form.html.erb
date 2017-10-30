@@ -1,4 +1,4 @@
-<%= form_for @user, :html => { :class => "form-horizontal user" } do |f| %>
+<%= form_for @user do |f| %>
 
   <% if @user.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -18,28 +18,26 @@
   <div class="form-group">
     <%= f.label :email, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :email, :class => 'form-control' %>
+      <%= f.email_field :email, :class => 'form-control', required: true %>
     </div>
     <%=f.error_span(:email) %>
   </div>
+
+   <br/>
   <div class="form-group">
-    <%= f.label :image, :class => 'control-label col-lg-2' %>
+    <%= f.label "Archivo de Imagen", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <img src='data:image/jpg;base64,<%= @user.image %>' width="200px"/>     
+      <%= f.file_field :image_file, :class => 'form-control', required: true %>
     </div>
     <%=f.error_span(:image) %>
   </div>
+  <br/>
+   <img src='data:image/jpg;base64,<%= @user.image %>' width="200px"/> 
   <div class="form-group">
-    <%= f.label :image_file, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.file_field :image_file, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:image) %>
-  </div>
-  <div class="form-group">
+    <br/>
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+      <%= f.submit "Enviar", :class => 'btn btn-primary' %>
+      <%= link_to "Cancelar",
                 users_path, :class => 'btn btn-default' %>
     </div>
   </div>

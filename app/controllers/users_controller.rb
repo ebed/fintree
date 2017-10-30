@@ -1,5 +1,11 @@
+## 
+# Controlador de Usuarios, encargado del mantenedor
+# de estos en el sistema
+
+
 class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
+	 
 	def index
 		@users = User.all
 	end
@@ -9,13 +15,19 @@ class UsersController < ApplicationController
 	end
 	
 	def create
-		imagencodificada=Base64.encode64(params.require(:user)[:image_file].read)
-		 
+
+		##
+		# Codigo engargado de realizar la decodificacion de la imagen en BASE64 para ser almacenado
+		# en base de datos
+		imagencodificada = Base64.encode64(params.require(:user)[:image_file].read)
+	 	 
 		user = User.new(user_params)
 		user.image = imagencodificada
 		if user.save
-			redirect_to root_path
+			flash[:notice] = "Creacion de usuario Exitosa"
+			redirect_to users_path
 		else
+			flash[:error] = "Creacion de usuario  Fallida"  
 			redirect_to new_user_path
 		end
 	end
@@ -26,14 +38,28 @@ class UsersController < ApplicationController
 	end
 
 	def update
-
+		##
+		# Codigo engargado de realizar la decodificacion de la imagen en BASE64 para ser almacenado
+		# en base de datos
+		imagencodificada = Base64.encode64(params.require(:user)[:image_file].read)
+		if @user.update(image: imagencodificada)
+			flash[:notice] = "Actualizacion de usuario Exitosa"
+			redirect_to users_path
+		else
+			flash[:error] = "Actualizacion de usuario  Fallida"  
+			redirect_to edit_user_path
+		end
 	end
 
 
 	def destroy
-		@user.destroy
-		redirect_to users_path
-		
+		if @user.destroy
+			flash[:notice] = "Eliminacion de usuario Exitosa"
+			redirect_to users_path
+		else 
+			flash[:error] = "Eliminacion de usuario  Fallida"  
+			redirect_to users_path
+		end
 
 	end
 
@@ -47,4 +73,7 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:email)
 	end
 
+ 
+
 end
+ 

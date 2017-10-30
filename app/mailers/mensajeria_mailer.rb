@@ -1,5 +1,5 @@
 class MensajeriaMailer < ActionMailer::Base
-  default from: "no-reply@fintree.cl"
+  #default from: "no-reply@fintree.cl"
 
   def intentoacceso( correo, agent, momento, resultado)
   	

@@ -19,8 +19,11 @@ on_worker_boot do
     ActiveRecord::Base.establish_connection
   end
 end
+on_worker_fork do
+  FileUtils.touch('/tmp/app-initialized')
+end
 
-# Specifies the `environment` that Puma will run in.
+ # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
 

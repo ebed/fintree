@@ -44,9 +44,10 @@ http {
 		}
 
 		location ^~ /rest/verify_user/ {
+			if ( $server_addr ~* $remote_addr ) {
+				proxy_pass http://fintree.herokuapp.com/rest/verify_user;
+			}	
 			 
-			allow $server_addr;
-			deny all; 
 			 
 		    
 		}

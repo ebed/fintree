@@ -92,17 +92,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address              => ENV['SMTP_SERVER'],
     :port                 => ENV['SMTP_PORT'],
-     
-    :domain               => ENV['DOMINIO'],
-    :format               =>  :html,
-    :enable_starttls_auto => true,
-    :authentication => :plain
-
-    :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRID_PASSWORD']
-
-   
-
+    :user_name            => ENV['SENDGRID_USERNAME'],
+    :password             => ENV['SENDGRID_PASSWORD'],
+    :authentication       => :login,
+    :format               => :html,
+    :enable_starttls_auto => true
 
   }
   # Do not dump schema after migrations.

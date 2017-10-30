@@ -86,6 +86,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.action_mailer.default_url_options = { :host => ENV['HOST'] }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
@@ -94,11 +95,13 @@ Rails.application.configure do
     :port                 => ENV['SMTP_PORT'],
     :user_name            => ENV['SENDGRID_USERNAME'],
     :password             => ENV['SENDGRID_PASSWORD'],
-    :authentication       => :login,
+    :domain => 'reportestecnicos.cl',
+    :authentication       => :plain,
     :format               => :html,
     :enable_starttls_auto => true
 
   }
-  # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
-end
+
+ 
+    config.active_record.dump_schema_after_migration = false
+    end

@@ -92,6 +92,14 @@ rake db:seed  // se compartio base sqlite3 de desarrollo con datos de prueba, po
 	}
 
 	```
+### Levantar el servidor local.
+Luego de hacer bundle y la migración, se podrá correr el servidor con el comando 
+
+```
+rails s 
+```
+Donde quedará disponible en el puerto 3000, si se desea escoger otro puerto, se puede agregar el parametro -p PUERTO
+
 
 ### Verificar servicio
 Para probar el servicio, se puede utilizar CURL con la siguiente estructura :

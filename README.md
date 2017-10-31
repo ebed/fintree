@@ -2,6 +2,13 @@
 
 Servicio Proxy de autenticación. Los endpoints disponibilizados son 2.
 
+POST /rest/login 
+	atributos: email, image (string BASE64)
+
+POST /rest/verify_user/{email} 
+	Este servicio es de uso interno, pudiendo acceder desde servicios en la misma maquina que generen el Bearer token correcto 
+
+
 
 ## URL disponibles
 La raiz redirecciona al formulario de Login.
@@ -37,13 +44,13 @@ Es necesario obtener las gemas necesarias, por lo que se deberá ejecutar el com
 Para el ambiente local, se está utilizando sqlite3, por lo que no se requiere usuario ni password
 Se debe montar la base de datos 
 ```
-	rake db:create
+	rake db:create // se compartio base sqlite3 de desarrollo con datos de prueba, por lo que este paso puede ser saltado
 	rake db:migrate
 ```
 
 Y realizar la inserción de los datos necesarios para partir 
 ```
-rake db:seed
+rake db:seed  // se compartio base sqlite3 de desarrollo con datos de prueba, por lo que este paso puede ser saltado
 ```
 
 ### Servicios
@@ -95,4 +102,3 @@ curl -d '{"email":"ignacio@acid.cl", "image":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdC
 
 ```
 
-=

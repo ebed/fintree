@@ -15,12 +15,10 @@ class ApplicationController < ActionController::Base
 
   ##
   # MEtodo para recuperar el caso de buscar registros no existntes
-  
+
   def rescue_from_notfound
   	flash[:error] = "No existe el registro indicado"
     redirect_to users_path
   end
 
-
-   
 end

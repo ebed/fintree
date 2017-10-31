@@ -1,12 +1,15 @@
 example_id                                         | status  | run_time        |
 -------------------------------------------------- | ------- | --------------- |
-./spec/controllers/users_controller_spec.rb[1:1:1] | passed  | 0.02388 seconds |
+./spec/controllers/users_controller_spec.rb[1:1:1] | passed  | 0.00411 seconds |
+./spec/controllers/users_controller_spec.rb[1:1:2] | passed  | 0.02023 seconds |
 ./spec/helpers/users_helper_spec.rb[1:1]           | pending | 0.00003 seconds |
 ./spec/jobs/send_email_job_spec.rb[1:1]            | pending | 0.00002 seconds |
-./spec/models/user_spec.rb[1:1]                    | passed  | 0.02515 seconds |
-./spec/requests/authentication_spec.rb[1:1]        | passed  | 0.13996 seconds |
-./spec/requests/authentication_spec.rb[1:2]        | passed  | 0.01252 seconds |
-./spec/utilidades/image_compare_spec.rb[1:1]       | passed  | 0.00333 seconds |
-./spec/utilidades/image_compare_spec.rb[1:2]       | passed  | 0.0026 seconds  |
-./spec/utilidades/image_compare_spec.rb[1:3]       | passed  | 0.00146 seconds |
-./spec/utilidades/image_compare_spec.rb[1:4]       | passed  | 0.00431 seconds |
+./spec/models/user_spec.rb[1:1]                    | passed  | 0.00272 seconds |
+./spec/models/user_spec.rb[1:2]                    | passed  | 0.00703 seconds |
+./spec/requests/authentication_spec.rb[1:1]        | passed  | 0.07331 seconds |
+./spec/requests/authentication_spec.rb[1:2]        | passed  | 0.02254 seconds |
+./spec/requests/authentication_spec.rb[1:3]        | passed  | 0.01651 seconds |
+./spec/utilidades/image_compare_spec.rb[1:1]       | passed  | 0.00086 seconds |
+./spec/utilidades/image_compare_spec.rb[1:2]       | passed  | 0.0017 seconds  |
+./spec/utilidades/image_compare_spec.rb[1:3]       | passed  | 0.00086 seconds |
+./spec/utilidades/image_compare_spec.rb[1:4]       | passed  | 0.00091 seconds |

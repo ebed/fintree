@@ -48,11 +48,16 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem "database_cleaner"
+  gem 'rspec'
   gem "rspec-rails"
   gem 'figaro'
   gem 'awesome_print'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'rails-controller-testing'
+end
+
+group :test do 
+  gem 'factory_girl_rails'
 end
 
 group :development do
